@@ -1,0 +1,41 @@
+//Loops consist of a start, a block and end.
+// A loop control variable (lcv) is used to control start and stop of loops.
+
+console.log("Kenny G Rocks!");
+console.log("Kenny G Rocks!");
+console.log("Kenny G Rocks!");
+console.log("Kenny G Rocks!");
+
+
+ The loopStart property of the AudioBufferSourceNode interface is a floating-point value indicating, in seconds, where in the AudioBuffer the restart of the play must happen.
+
+The loopStart property's default value is 0.
+A floating-point number indicating the offset, in seconds, into the audio buffer at which each loop should begin during playback. This value is only used when the loop parameter is true.
+
+AudioBufferSourceNode.loopStart = startOffsetInSeconds;
+
+startOffsetInSeconds = AudioBufferSourceNode.loopStart;
+
+ Buttons are provided to play and stop the audio playback, and slider controls are used to change the playbackRate, loopStart, and loopEnd properties on the fly.
+
+ function getData() {
+  source = audioCtx.createBufferSource();
+  request = new XMLHttpRequest();
+
+  request.open('GET', 'viper.ogg', true);
+  request.responseType = 'arraybuffer';
+
+  request.onload = function() {
+    var audioData = request.response;
+
+    audioCtx.decodeAudioData(audioData, function(buffer) {
+        myBuffer = buffer;
+        songLength = buffer.duration;
+        source.buffer = myBuffer;
+        source.playbackRate.value = playbackControl.value;
+        source.connect(audioCtx.destination);
+        source.loop = true;
+
+        loopstartControl.setAttribute('max', Math.floor(songLength));
+        loopendControl.setAttribute('max', Math.floor(songLength));
+      },

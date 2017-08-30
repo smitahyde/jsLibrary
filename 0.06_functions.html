@@ -1,0 +1,33 @@
+Function is a javascript procedure -aset of statements that performs a task or calculates a value.
+
+function addNum(numOne, numTwo){
+	return numOne+numTwo;
+	//console.log(numOne +numTwo);
+}
+
+addNums(30,30)
+=>60
+
+
+A function definition (also called a function declaration, or function statement) consists of the function keyword, followed by:
+
+The name of the function.
+A list of parameters to the function, enclosed in parentheses and separated by commas.
+The JavaScript statements that define the function, enclosed in curly brackets, { }.
+
+function square(number) {
+  return number * number;
+}
+
+function myFunc(theObject) {
+  theObject.make = 'Toyota';
+}
+
+var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+var x, y;
+
+x = mycar.make; // x gets the value "Honda"
+
+myFunc(mycar);
+y = mycar.make; // y gets the value "Toyota"
+                // (the make property was changed by the function)
